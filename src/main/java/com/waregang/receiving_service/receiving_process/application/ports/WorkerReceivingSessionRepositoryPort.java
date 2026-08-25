@@ -1,0 +1,28 @@
+package com.waregang.receiving_service.receiving_process.application.ports;
+
+import com.waregang.receiving_service.receiving_process.domain.model.WorkerReceivingSession;
+import com.waregang.receiving_service.receiving_process.domain.model.WorkerReceivingSessionStatus;
+
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
+
+public interface WorkerReceivingSessionRepositoryPort {
+    boolean existsByReceiptIdAndStatus(UUID receiptId, WorkerReceivingSessionStatus workerReceivingSessionStatus);
+
+    boolean existsByWorkerIdAndStatus(UUID id, WorkerReceivingSessionStatus workerReceivingSessionStatus);
+
+    long countCompletedReceiptsByWorkerId(UUID workerId);
+
+    WorkerReceivingSession save(WorkerReceivingSession session);
+
+    WorkerReceivingSession update(WorkerReceivingSession session);
+
+    Optional<WorkerReceivingSession> findByWorkerIdAndStatus(UUID id, WorkerReceivingSessionStatus workerReceivingSessionStatus);
+
+    Set<WorkerReceivingSession> findAll();
+
+    Optional<WorkerReceivingSession> findByWorkerId(UUID id);
+
+    Optional<WorkerReceivingSession> findByWorkerIdWithLock(UUID id);
+}

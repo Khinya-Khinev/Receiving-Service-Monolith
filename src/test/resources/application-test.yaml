@@ -1,0 +1,33 @@
+app:
+  adapters:
+    worker-receiving-session-repository-adapter: "jpa"
+  security:
+    jwt:
+      secret: "62wOt+JVGFEOFd+o70ssHfHbW1JIy6f1q22bYi2/Ljw="
+      access-token-expiration: 86400000
+      refresh-token-expiration: 86400000
+
+spring:
+  application:
+    name: receiving-service
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      acks: all
+      retries: 3
+      properties:
+        spring.json.add.type.headers: true
+
+# ... остальное без изменений (logging и т.д.)
