@@ -131,10 +131,10 @@ public class AdvancedShippingNoticeService {
             List<Predicate> predicates = new ArrayList<>();
 
             if (filters.fromDate() != null) {
-                predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("arrivalDate").get("expected"), filters.fromDate()));
+                predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("arrivalTimeline").get("expected"), filters.fromDate()));
             }
             if (filters.toDate() != null) {
-                predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("arrivalDate").get("expected"), filters.toDate()));
+                predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("arrivalTimeline").get("expected"), filters.toDate()));
             }
             if (filters.status() != null) {
                 predicates.add(criteriaBuilder.equal(root.get("status"), filters.status()));
