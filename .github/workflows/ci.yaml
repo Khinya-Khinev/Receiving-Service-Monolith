@@ -19,10 +19,10 @@ jobs:
         with:
           fetch-depth: 0          # for SonarQube to get all git history of commits and to understand what to check
       - uses: actions/setup-java@v4 # predefined ready set-up
-        with: # settings for action
+        with:                               # settings for action
           distribution: temurin
           java-version: "25"
-          cache: maven # caching maven dependency
+          cache: maven                         # caching maven dependency
 
       - run: chmod +x mvnw
 
