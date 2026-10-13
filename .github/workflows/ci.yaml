@@ -40,7 +40,7 @@ jobs:
           ./mvnw -B -ntp
           org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
           -Dsonar.projectKey=Khinya-Khinev_Receiving-Service-Monolith
-          -Dsonar.organization=-Dsonar.organization=khinya-organisation
+          -Dsonar.organization=khinya-organisation
 
   docker:
     name: Docker image
