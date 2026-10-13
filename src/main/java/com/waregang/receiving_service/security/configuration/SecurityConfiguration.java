@@ -46,7 +46,7 @@ public class SecurityConfiguration {
             AuthenticationProvider authenticationProvider,
             CustomAuthenticationEntryPoint authenticationEntryPoint,
             CustomAccessDeniedHandler accessDeniedHandler
-    ) throws Exception {
+    ) {
         http
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
